@@ -1,8 +1,6 @@
 <script>
 	import { getImageURL } from '$lib/utils';
 	export let data;
-
-	console.log(data.project);
 </script>
 
 <div class="flex flex-col w-full mt-4">
