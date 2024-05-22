@@ -4,7 +4,7 @@
 	import { getImageURL } from '$lib/utils';
 	import toast from 'svelte-french-toast';
 	export let project;
-
+    
 	let modalOpen;
 	let loading = false;
 

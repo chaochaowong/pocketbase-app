@@ -1,16 +1,16 @@
 import { error, redirect } from '@sveltejs/kit';
 import { serializeNonPOJOs } from '$lib/utils';
 
-export const load = ({ locals }) => {
+export const load = async ({ locals }) => {
 	if (!locals.pb.authStore.isValid) {
 		throw redirect(303, '/login');
 	}
 
-	const getUsersProjects = async (userId) => {
+	const getUsersProjects = async (userID) => {
 		try {
 			const projects = serializeNonPOJOs(
 				await locals.pb.collection('projects').getFullList(undefined, {
-					filter: `user = "${userId}"`
+					filter: `user = "${userID}"`
 				})
 			);
 			return projects;
@@ -21,8 +21,8 @@ export const load = ({ locals }) => {
 	};
 
 	return {
-		projects: getUsersProjects(locals.user.id)
-	};
+		projects: await getUsersProjects(locals.user.id)
+	}; 
 };
 
 export const actions = {

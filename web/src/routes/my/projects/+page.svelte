@@ -1,6 +1,7 @@
 <script>
 	import { MyProjectItem } from '$lib/components';
 	export let data;
+	$: console.log(data.projects) 
 </script>
 
 <h2 class="text-3xl font-bold">My Projects</h2>
