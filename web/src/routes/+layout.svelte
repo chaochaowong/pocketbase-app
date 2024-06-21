@@ -19,6 +19,9 @@
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
+					<a href="/view/projects" class="btn btn-primary btn-outline">View Projects</a>
+				</div>
+				<div class="dropdown dropdown-end mr-4">
 					<a href="/projects/new" class="btn btn-primary btn-outline">Add Project</a>
 				</div>
 				<div class="dropdown dropdown-end">

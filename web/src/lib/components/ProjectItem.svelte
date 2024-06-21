@@ -16,6 +16,6 @@
 	</div>
 	<div class="flex flex-col w-full ml-4 h-full justify-center">
 		<a href="/projects/{project.id}" class="font-semibold text-lg">{project.name}</a>
-		<p>{project.tagline}</p>
+		<p>{project.description}</p>
 	</div>
 </div>
