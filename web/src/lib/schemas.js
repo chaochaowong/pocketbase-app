@@ -97,28 +97,28 @@ export const createProjectSchema = z.object({
 
 export const updateProjectSchema = createProjectSchema.omit({ user: true });
 
-export const createNGSProjectSchema = z.object({
+export const createNGSPostSchema = z.object({
 	project_name: z
 		.string({ required_error: 'Project name is required' })
 		.min(2, { message: 'Project name must be more than 2 characters' })
-		.max(64, { message: 'Project ame must be 64 characters or less' })
+		.max(64, { message: 'Project name must be 64 characters or less' })
 		.trim(),
 	experiment_id: z
-		.string({ required_error: 'Experiment ID is required' })
+		.string({ required_error: 'Experiment ID is required (e.g., GBe4)' })
 		.min(2, { message: 'Experiment ID must be more than 2 characters' })
 		.max(64, { message: 'Experiment ID must be 64 characters or less' })
 		.trim(),
 	library_strategy: z
-		.string({ required_error: 'Library strategy is required (e.g. CUT&RUN)' })
+		.string({ required_error: 'Library strategy is required (e.g., CUT&RUN, CUT&Tag)' })
 		.min(2, { message: 'Library strategy must be more than 2 characters' })
-		.max(64, { message: 'Experiment ID must be 64 characters or less' })
+		.max(64, { message: 'Library strategy must be 64 characters or less' })
 		.trim(),	
 	description: z
 		.string({ required_error: 'Description is required (e.g. CUT&RUN)' })
 		.min(2, { message: 'Description must be more than 2 characters' })
 		.max(512, { message: 'Description must be less than 512 characters' })
 		.trim(),		
-	url: z.url({ message: 'URL must be a valid URL' }),
+	//url: z.url({ message: 'URL must be a valid URL' }),
 	thumbnail: z
 		.instanceof(Blob)
 		.optional()
@@ -142,6 +142,7 @@ export const createNGSProjectSchema = z.object({
 	user: z.string({ required_error: 'User is required.' })
 });
 
+export const updateNGSPostSchema = createNGSPostSchema.omit({ user: true });
 
 export const updateEmailSchema = z.object({
 	email: z
