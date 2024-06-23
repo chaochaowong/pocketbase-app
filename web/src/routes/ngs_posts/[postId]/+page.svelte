@@ -52,11 +52,8 @@
 	<h2 class="text-1xl font-bold mt-4">
 	  Files 
 	</h2>
-	<p>
-	<p>Nextflow sample sheet: 
-	   {data.post.nf_sample_sheet}</p>
-	<p>Nextflow configuration file: 
-	   {data.post.nf_configuration}</p>
-	<p>Master sample sheet: 
-	   {data.post.sample_master_sheet}</p>
+
+	<p>Nextflow sample sheet: {data.post.nf_sample_sheet}</p>
+	<p>Nextflow configuration file: {data.post.nf_configuration}</p>
+	<p>Master sample sheet: {data.post.sample_master_sheet}</p>
 </div>
