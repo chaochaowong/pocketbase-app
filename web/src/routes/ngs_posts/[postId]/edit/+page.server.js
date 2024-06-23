@@ -65,5 +65,53 @@ export const actions = {
 		return {
 			success: true
 		};
+	},
+
+	deleteSampleSheet: async ({ locals, params }) => {
+		try {
+			await locals.pb.collection('ngs_posts').update(params.postId, { sample_master_sheet: null });
+		} catch (err) {
+			console.log('Error: ', err);
+			throw error(err.status, err.message);
+		}
+		return {
+			success: true
+		};
+	},
+
+	deleteNFConfiguration: async ({ locals, params }) => {
+		try {
+			await locals.pb.collection('ngs_posts').update(params.postId, { nf_configuration: null });
+		} catch (err) {
+			console.log('Error: ', err);
+			throw error(err.status, err.message);
+		}
+		return {
+			success: true
+		};
+	},
+
+	deleteNFSampleSheet: async ({ locals, params }) => {
+		try {
+			await locals.pb.collection('ngs_posts').update(params.postId, { nf_sample_sheet: null });
+		} catch (err) {
+			console.log('Error: ', err);
+			throw error(err.status, err.message);
+		}
+		return {
+			success: true
+		};
+	},
+
+	deleteTapStation: async ({ locals, params }) => {
+		try {
+			await locals.pb.collection('ngs_posts').update(params.postId, { tap_station_output: null });
+		} catch (err) {
+			console.log('Error: ', err);
+			throw error(err.status, err.message);
+		}
+		return {
+			success: true
+		};
 	}
 };

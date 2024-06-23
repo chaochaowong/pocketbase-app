@@ -3,7 +3,7 @@
 	import { invalidateAll } from '$app/navigation';
 	import { Icon, Trash } from 'svelte-hero-icons';
 	import { Input, TextArea } from '$lib/components';
-	import { getImageURL } from '$lib/utils';
+	import { getImageURL, getFileURL } from '$lib/utils';
 	export let data;
 	export let form;
 
@@ -163,6 +163,39 @@
 				value={form?.data?.comments ?? data.post.comments}
 				errors={form?.errors?.comments}
 			/>
+			<div class="form-control w-full max-w-lg">
+				<label for="nf_sample_sheet" class="label font-medium pb-1">
+					<span class="label-text">Nextflow sample sheet</span>
+				</label>
+				{#if data.post.nf_sample_sheet}
+					<label for="nf_sample_sheet" class="flex flex-col w-full mt-4">
+						<label for="nf_sample_sheet" class="absolute -right hover:cursor-pointer">
+							<button formaction="?/deleteNFSampleSheet" class="btn btn-error btn-sm btn-circle">
+								<Icon src={Trash} class="w-5 h-5 text-white" />
+							</button>
+						</label>
+                        <div class="flex flex-col w-full h-full ml-10 mt-1">
+							<p>{data.post.nf_sample_sheet}</p>
+						</div>
+					</label>
+				{/if}	
+				<input
+					type="file"
+					name="nf_samplesheet"
+					id="nf_sample_sheet"
+					class="file-input file-input-bordered w-full max-w-lg mt-4"
+				/>
+				{#if form?.errors?.nf_sample_sheet}
+					{#each form?.errors?.nf_sample_sheet as error}
+						<label for="nf_sample_sheet" class="label py-0 pt-1">
+							<span class="label-text-alt text-error">
+								{error}
+							</span>
+						</label>
+					{/each}
+				{/if}
+			</div>
+
 			<div class="form-control w-full max-w-lg">
 				<label for="thumbnail" class="label font-medium pb-1">
 					<span class="label-text">Thumbnail</span>
