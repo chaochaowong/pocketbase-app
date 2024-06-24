@@ -7,7 +7,7 @@
 <div class="flex flex-col w-full h-full p-2">
 	<div class="w-full">
 		<form
-			action="?/create"
+			action="?/createPost"
 			method="POST"
 			class="flex flex-col space-y-2 w-full items-center"
 			enctype="multipart/form-data"
@@ -15,12 +15,12 @@
 		>
 			<h3 class="text-3xl font-bold">Enter new record of NGS experiment</h3>
 			<Input 
-				id="project_id" 
-				label="Project ID" 
-				value={form?.data?.project_id} 
-				errors={form?.errors?.project_id} 
+				id="project_name" 
+				label="Project name" 
+				value={form?.data?.project_name} 
+				errors={form?.errors?.project_name} 
 			/>
-			<Input class="fond-semibold"
+			<Input 
 				id="experiment_id" 
 				label="Experiment ID" 
 				value={form?.data?.experiment_id} 
@@ -106,7 +106,7 @@
 			/>
 			<Input
 				id="nextflow_pipeline"
-				label="Nextflow pipeline"
+				label="Nextflow pipeline version"
 				value={form?.data?.nextflow_pipeline}
 				errors={form?.errors?.nextflow_pipeline}
 			/>

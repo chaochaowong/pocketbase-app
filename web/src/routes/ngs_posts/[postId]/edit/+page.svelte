@@ -133,7 +133,6 @@
 				value={form?.data?.nextflow_pipeline ?? data.post.nextflow_pipeline}
 				errors={form?.errors?.nextflow_pipeline}
 			/>
-			
 			<Input
 				id="fastq_path"
 				label="FASTQ path"

@@ -108,6 +108,11 @@ export const createNGSPostSchema = z.object({
 		.min(2, { message: 'Experiment ID must be more than 2 characters' })
 		.max(64, { message: 'Experiment ID must be 64 characters or less' })
 		.trim(),
+	experiment_name: z
+		.string({ required_error: 'Experiment name is required' })
+		.min(2, { message: 'Experiment name must be more than 2 characters' })
+		.max(64, { message: 'Experiment name must be 64 characters or less' })
+		.trim(),		
 	library_strategy: z
 		.string({ required_error: 'Library strategy is required (e.g., CUT&RUN, CUT&Tag)' })
 		.min(2, { message: 'Library strategy must be more than 2 characters' })
@@ -117,8 +122,104 @@ export const createNGSPostSchema = z.object({
 		.string({ required_error: 'Description is required (e.g. CUT&RUN)' })
 		.min(2, { message: 'Description must be more than 2 characters' })
 		.max(512, { message: 'Description must be less than 512 characters' })
-		.trim(),		
-	//url: z.url({ message: 'URL must be a valid URL' }),
+		.trim(),	
+	experiment_design: z
+		.string()
+		.max(2048, { message: 'Experiment desgin must be less than 2048 character'})
+		.trim()
+		.optional(),		
+	organism: z
+		.string()
+		.max(64, { message: 'organism must be less than 64 character'})
+		.trim()
+		.optional(),			
+	cell_line: z
+		.string()
+		.max(64, { message: 'Cell line must be less than 64 character'})
+		.trim()
+		.optional(),
+	cell_type: z
+		.string()
+		.max(64, { message: 'Cell type must be less than 64 character'})
+		.trim()
+		.optional(),		
+	antibody: z
+		.string()
+		.max(64, { message: 'Antibody must be less than 64 character'})
+		.trim()
+		.optional(),	
+	molecule: z
+		.string()
+		.max(64, { message: 'Moleculre must be less than 64 character'})
+		.trim()
+		.optional(),				
+	spike_in: z
+		.string()
+		.max(64, { message: 'Spiked-in must be less than 64 character'})
+		.trim()
+		.optional(),	
+	instrument_model: z
+		.string()
+		.max(64, { message: 'Instrument model must be less than 64 character'})
+		.trim()
+		.optional(),			
+	genome_build: z
+		.string()
+		.max(64, { message: 'Genome build must be less than 64 character'})
+		.trim()
+		.optional(),	
+	nextflow_pipeline: z
+		.string()
+		.max(64, { message: 'Nexflow pipeline must be less than 64 character'})
+		.trim()
+		.optional(),		
+	comments: z
+		.string()
+		.max(2048, { message: 'comments must be less than 2048 character'})
+		.trim()
+		.optional(),	
+	GEO_series: z
+		.string()
+		.max(64, { message: 'GEO_series must be less than 64 character'})
+		.trim()
+		.optional(),			
+	DOI: z
+		.string()
+		.max(64, { message: 'DOI must be less than 64 character'})
+		.trim()
+		.optional(),		
+	PMID: z
+		.string()
+		.max(64, { message: 'PMID must be less than 64 character'})
+		.trim()
+		.optional(),
+	fastq_path: z
+		.string()
+		.max(512, { message: 'FASTQ path must be less than 512 character'})
+		.trim()
+		.optional(),		
+	result_folder_path: z
+		.string()
+		.max(512, { message: 'Results folder path must be less than 512 character'})
+		.trim()
+		.optional(),				
+	tag: z
+		.string()
+		.max(512, { message: 'Tag must be less than 512 character'})
+		.trim()
+		.optional(),		
+	nf_sample_sheet: z
+		.instanceof(Blob)
+		.optional(),
+	nf_configuration: z
+		.instanceof(Blob)
+		.optional(),
+	sample_master_sheet: z
+		.instanceof(Blob)
+		.optional(),
+	tap_station_output: z
+		.instanceof(Blob)
+		.optional(),				
 	thumbnail: z
 		.instanceof(Blob)
 		.optional()

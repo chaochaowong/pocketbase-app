@@ -10,7 +10,7 @@ export const load = ({ locals }) => {
 };
 
 export const actions = {
-	create: async ({ request, locals }) => {
+	createPost: async ({ request, locals }) => {
 		const body = await request.formData();
 
 		const thumb = body.get('thumbnail');
@@ -31,12 +31,12 @@ export const actions = {
 		}
 
 		try {
-			await locals.pb.collection('ngs_projects').create(serialize(formData));
+			await locals.pb.collection('ngs_posts').create(serialize(formData));
 		} catch (err) {
 			console.log('Error: ', err);
 			throw error(err.status, err.message);
 		}
 
-		throw redirect(303, '/my/ngs_projects');
+		throw redirect(303, '/my/ngs_posts');
 	}
 };

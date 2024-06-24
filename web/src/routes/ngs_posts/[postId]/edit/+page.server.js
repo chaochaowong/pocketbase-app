@@ -29,11 +29,12 @@ export const load = async ({ locals, params }) => {
 export const actions = {
 	updatePost: async ({ request, locals, params }) => {
 		const body = await request.formData();
-
+		const tap_station_output = body.get('tap_station_output');
 		const thumb = body.get('thumbnail');
 
 		if (thumb.size === 0) {
 			body.delete('thumbnail');
+			body.delete('tap_station_output');
 		}
 
 		const { formData, errors } = await validateData(body, updateNGSPostSchema);
