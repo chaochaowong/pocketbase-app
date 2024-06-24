@@ -15,7 +15,7 @@
 		>
 			<h3 class="text-3xl font-bold">Enter new record of NGS experiment</h3>
 			<Input 
-				id="project_name" 
+				id="project_name"
 				label="Project name" 
 				value={form?.data?.project_name} 
 				errors={form?.errors?.project_name} 
@@ -147,7 +147,7 @@
 				errors={form?.errors?.comments}
 			/>
 			<Input id="sample_master_sheet" label="Master sheet" type="file" errors={form?.errors?.sample_master_sheet} />
-			<Input id="tap_station" label="Tap station output" type="file" errors={form?.errors?.tap_station_output} />
+			<Input id="tap_station_output" label="Tap station output" type="file" errors={form?.errors?.tap_station_output} />
 			<Input id="nf_sample_sheet" label="Nextflow sample sheet" type="file" errors={form?.errors?.nf_sample_sheet} />
 			<Input id="nf_configuration" label="Nextflow configuration file" type="file" errors={form?.errors?.nf_configuration} />
 			<Input id="thumbnail" label="Thumbnail" type="file" errors={form?.errors?.thumbnail} />

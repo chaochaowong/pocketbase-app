@@ -22,14 +22,16 @@
 					<a href="/view/ngs_posts" class="btn btn-primary btn-outline">View NGS record</a>
 				</div>
 				<div class="dropdown dropdown-end mr-4">
-					<a href="/ngs_posts/new" class="btn btn-primary btn-outline">Add NGS record</a>
+					<a href="/ngs_posts/new" class="btn btn-primary btn-outline">Add NGS records</a>
 				</div>
+<!-- 
 				<div class="dropdown dropdown-end mr-4">
-					<a href="/view/projects" class="btn btn-primary btn-outline">View Projects</a>
+				    <a href="/view/projects" class="btn btn-primary btn-outline">View Projects</a>
 				</div>
 				<div class="dropdown dropdown-end mr-4">
 					<a href="/projects/new" class="btn btn-primary btn-outline">Add Project</a>
 				</div>
+-->
 				<div class="dropdown dropdown-end">
 					<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 					<!-- svelte-ignore a11y-label-has-associated-control -->
@@ -48,8 +50,13 @@
 						tabindex="0"
 						class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 					>
+<!--
 						<li>
 							<a href="/my/projects" class="justify-between">My Projects</a>
+						</li>
+-->
+						<li>
+							<a href="/my/ngs_posts" class="justify-between">My NGS records</a>
 						</li>
 						<li><a href="/my/settings">Settings</a></li>
 						<li>
