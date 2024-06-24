@@ -104,18 +104,6 @@
 				errors={form?.errors?.molecule}
 			/>
 			<Input
-				id="fastq_path"
-				label="FASTQ path"
-				value={form?.data?.fastq_path ?? data.post.fastq_path}
-				errors={form?.errors?.fastq_path}
-			/>
-			<Input
-				id="result_folder_path"
-				label="Result folder path"
-				value={form?.data?.result_folder_path ?? data.post.result_folder_path}
-				errors={form?.errors?.result_folder_path}
-			/>
-			<Input
 				id="genome_build"
 				label="Genome build"
 				value={form?.data?.genome_build ?? data.post.genome_build}
@@ -132,6 +120,18 @@
 				label="Instrument model"
 				value={form?.data?.instrument_model ?? data.post.instrument_model}
 				errors={form?.errors?.instrument_model}
+			/>
+			<Input
+				id="fastq_path"
+				label="FASTQ path"
+				value={form?.data?.fastq_path ?? data.post.fastq_path}
+				errors={form?.errors?.fastq_path}
+			/>
+			<Input
+				id="result_folder_path"
+				label="Result folder path"
+				value={form?.data?.result_folder_path ?? data.post.result_folder_path}
+				errors={form?.errors?.result_folder_path}
 			/>
 			<Input
 				id="GEO_series"
@@ -151,12 +151,6 @@
 				value={form?.data?.PMID ?? data.post.PMID}
 				errors={form?.errors?.PMID}
 			/>
-			<Input
-				id="url"
-				label="URL"
-				value={form?.data?.url ?? data.post.url}
-				errors={form?.errors?.url}
-			/>
 			<TextArea
 				id="comments"
 				label="Comments"
@@ -169,12 +163,12 @@
 				</label>
 				{#if data.post.nf_sample_sheet}
 					<label for="nf_sample_sheet" class="flex flex-col w-full mt-4">
-						<label for="nf_sample_sheet" class="absolute -right hover:cursor-pointer">
+						<label for="nf_sample_sheet" class="absolute hover:cursor-pointer">
 							<button formaction="?/deleteNFSampleSheet" class="btn btn-error btn-sm btn-circle">
 								<Icon src={Trash} class="w-5 h-5 text-white" />
 							</button>
 						</label>
-                        <div class="flex flex-col w-full h-full ml-10 mt-1">
+						<div class="flex flex-col w-full h-full ml-10 mt-1">
 							<p>{data.post.nf_sample_sheet}</p>
 						</div>
 					</label>
@@ -188,6 +182,38 @@
 				{#if form?.errors?.nf_sample_sheet}
 					{#each form?.errors?.nf_sample_sheet as error}
 						<label for="nf_sample_sheet" class="label py-0 pt-1">
+							<span class="label-text-alt text-error">
+								{error}
+							</span>
+						</label>
+					{/each}
+				{/if}
+			</div>
+			<div class="form-control w-full max-w-lg">
+				<label for="nf_configuration" class="label font-medium pb-1">
+					<span class="label-text">Nextflow configuration file</span>
+				</label>
+				{#if data.post.nf_configuration}
+					<label for="nf_configuration" class="flex flex-col w-full mt-4">
+						<label for="nf_configuration" class="absolute hover:cursor-pointer">
+							<button formaction="?/deleteNFConfiguration" class="btn btn-error btn-sm btn-circle">
+								<Icon src={Trash} class="w-5 h-5 text-white" />
+							</button>
+						</label>
+						<div class="flex flex-col w-full h-full ml-10 mt-1">
+							<p>{data.post.nf_configuration}</p>
+						</div>
+					</label>
+				{/if}	
+				<input
+					type="file"
+					name="nf_configuration"
+					id="nf_configuration"
+					class="file-input file-input-bordered w-full max-w-lg mt-4"
+				/>
+				{#if form?.errors?.nf_configuration}
+					{#each form?.errors?.nf_configuration as error}
+						<label for="nf_configuration" class="label py-0 pt-1">
 							<span class="label-text-alt text-error">
 								{error}
 							</span>

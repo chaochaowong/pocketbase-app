@@ -36,24 +36,31 @@
 	<p>Antibody: {data.post.antibody}</p>
 	<p>Molecule: {data.post.molecule}</p>
 	<p>Spike_in: {data.post.spike_in}</p>
-	<p>FASTQ path: {data.post.fastq_path}</p>
 	<p>Result folder path: {data.post.result_folder_path}</p>
 	<p>Genome build: {data.post.genome_build}</p>
 	<p>Nextflow pipeline: {data.post.nextflow_pipeline}</p>
 	<p>Instrument model: {data.post.instrument_model}</p>
+	<p>Comments: {data.post.comments}</p>
+	<p>Tag: {data.post.tag}</p>
+
+	<h2 class="text-1xl font-bold mt-4">
+		Path 
+	</h2>
+	<p>FASTQ path: {data.post.fastq_path}</p>
+    <p>Result folder path: {data.post.result_folder_path}</p>
+
+	<h2 class="text-1xl font-bold mt-4">
+		Publication info 
+	</h2>
 	<p>GEO series number: {data.post.GEO_series}</p>
 	<p>DOI: {data.post.DOI}</p>
 	<p>PMID: {data.post.PMID}</p>
-	<p>Comments: {data.post.comments}</p>
-	<p>Tag: {data.post.tag}</p>
-	<p></p>
-   
 
 	<h2 class="text-1xl font-bold mt-4">
 	  Files 
 	</h2>
 	<p>Tap station output: {data.post.tap_station_output}</p>
-	<p>Nextflow sample sheet: {data.post.nf_sample_sheet}</p>
-	<p>Nextflow configuration file: {data.post.nf_configuration}</p>
 	<p>Master sample sheet: {data.post.sample_master_sheet}</p>
+	<p>Nextflow sample sheet: {data.post.nf_sample_sheet}</p>
+	<p>Nextflow configuration file: {data.post.nf_configuraion}</p>
 </div>
