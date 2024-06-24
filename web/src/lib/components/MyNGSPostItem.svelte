@@ -31,16 +31,16 @@
 
 <div class="w-full h-28 flex items-center justify-between">
 	<a href="/ngs_posts/{post.id}">
-	<div class="avatar">
-		<div class="w-20 rounded">
-			<img
-				src={post?.thumbnail
-					? getImageURL(post.collectionId, post.id, post.thumbnail, '80x80')
-					: `https://via.placeholder.com/80/4506CB/FFFFFF/?text=${post.experiment_id}`}
-				alt="post thumbnail"
-			/>
+		<div class="avatar">
+			<div class="w-20 rounded">
+				<img
+					src={post?.thumbnail
+						? getImageURL(post.collectionId, post.id, post.thumbnail, '80x80')
+						: `https://via.placeholder.com/80/4506CB/FFFFFF/?text=${post.experiment_id}`}
+					alt="post thumbnail"
+				/>
+			</div>
 		</div>
-	</div>
 	</a>
 
 	<div class="flex flex-col w-full ml-4 h-full justify-center">
