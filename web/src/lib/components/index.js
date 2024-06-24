@@ -5,4 +5,5 @@ import MyNGSPostItem from "./MyNGSPostItem.svelte";
 import TextArea from "./TextArea.svelte";
 import ProjectCard from "./ProjectCard.svelte";
 import ProjectItem from "./ProjectItem.svelte";
-export { Input, Modal, MyProjectItem, MyNGSPostItem, ProjectCard, TextArea, ProjectItem };
+import NGSPostItem from "./NGSPostItem.svelte";
+export { Input, Modal, MyProjectItem, MyNGSPostItem, ProjectCard, TextArea, ProjectItem, NGSPostItem };

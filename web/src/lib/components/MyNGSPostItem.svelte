@@ -30,6 +30,7 @@
 </script>
 
 <div class="w-full h-28 flex items-center justify-between">
+	<a href="/ngs_posts/{post.id}">
 	<div class="avatar">
 		<div class="w-20 rounded">
 			<img
@@ -40,14 +41,15 @@
 			/>
 		</div>
 	</div>
+	</a>
 
 	<div class="flex flex-col w-full ml-4 h-full justify-center">
-		<a href="/ngs_posts/{post.id}" class="font-semibold text-lg">{post.experiment_id}</a>
+		<a href="/ngs_posts/{post.id}" class="font-semibold text-lg hover:text-blue-700">{post.experiment_id}</a>
 		<p class="font-semibold">{post.experiment_name}</p>
 		<p>{post.description}</p>
 	</div>
 	<div class="flex items-center justify-end w-full">
-		<a href="/ngs_posts/{post.id}/edit" class="btn btn-outline">Edit</a>
+		<a href="/ngs_posts/{post.id}/edit" class="btn btn-outline ml-2">Edit</a>
 		<Modal label={post.id} checked={modalOpen}>
 			<span slot="trigger" class="btn btn-error ml-2">Delete</span>
 			<div slot="heading">
