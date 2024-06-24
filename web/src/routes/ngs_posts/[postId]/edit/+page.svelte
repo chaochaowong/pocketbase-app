@@ -158,6 +158,70 @@
 				errors={form?.errors?.comments}
 			/>
 			<div class="form-control w-full max-w-lg">
+				<label for="sample_master_sheet" class="label font-medium pb-1">
+					<span class="label-text">Master sheet</span>
+				</label>
+				{#if data.post.sample_master_sheet}
+					<label for="sample_master_sheet" class="flex flex-col w-full mt-4">
+						<label for="sample_master_sheet" class="absolute hover:cursor-pointer">
+							<button formaction="?/deleteMasterSheet" class="btn btn-error btn-sm btn-circle">
+								<Icon src={Trash} class="w-5 h-5 text-white" />
+							</button>
+						</label>
+						<div class="flex flex-col w-full h-full ml-10 mt-1">
+							<p>{data.post.sample_master_sheet}</p>
+						</div>
+					</label>
+				{/if}	
+				<input
+					type="file"
+					name="sample_master_sheet"
+					id="sample_master_sheet"
+					class="file-input file-input-bordered w-full max-w-lg mt-4"
+				/>
+				{#if form?.errors?.sample_master_sheet}
+					{#each form?.errors?.sample_master_sheet as error}
+						<label for="sample_master_sheet" class="label py-0 pt-1">
+							<span class="label-text-alt text-error">
+								{error}
+							</span>
+						</label>
+					{/each}
+				{/if}
+			</div>
+			<div class="form-control w-full max-w-lg">
+				<label for="tap_station_output" class="label font-medium pb-1">
+					<span class="label-text">Tap station output</span>
+				</label>
+				{#if data.post.tap_station_output}
+					<label for="tap_station_output" class="flex flex-col w-full mt-4">
+						<label for="tap_station_output" class="absolute hover:cursor-pointer">
+							<button formaction="?/deleteTapStation" class="btn btn-error btn-sm btn-circle">
+								<Icon src={Trash} class="w-5 h-5 text-white" />
+							</button>
+						</label>
+						<div class="flex flex-col w-full h-full ml-10 mt-1">
+							<p>{data.post.tap_station_output}</p>
+						</div>
+					</label>
+				{/if}	
+				<input
+					type="file"
+					name="nf_tap_station_output"
+					id="nf_tap_station_output"
+					class="file-input file-input-bordered w-full max-w-lg mt-4"
+				/>
+				{#if form?.errors?.tap_station_output}
+					{#each form?.errors?.tap_station_output as error}
+						<label for="tap_station_output" class="label py-0 pt-1">
+							<span class="label-text-alt text-error">
+								{error}
+							</span>
+						</label>
+					{/each}
+				{/if}
+			</div>
+			<div class="form-control w-full max-w-lg">
 				<label for="nf_sample_sheet" class="label font-medium pb-1">
 					<span class="label-text">Nextflow sample sheet</span>
 				</label>

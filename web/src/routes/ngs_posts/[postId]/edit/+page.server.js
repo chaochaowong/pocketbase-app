@@ -67,7 +67,7 @@ export const actions = {
 		};
 	},
 
-	deleteSampleSheet: async ({ locals, params }) => {
+	deleteMasterSheet: async ({ locals, params }) => {
 		try {
 			await locals.pb.collection('ngs_posts').update(params.postId, { sample_master_sheet: null });
 		} catch (err) {
