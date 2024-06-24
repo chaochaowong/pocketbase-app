@@ -49,6 +49,12 @@
 				value={form?.data?.experiment_id ?? data.post.experiment_id}
 				errors={form?.errors?.experiment_id}
 			/>
+			<Input
+				id="experiment_name"
+				label="Experiment ID"
+				value={form?.data?.experiment_name ?? data.post.experiment_name}
+				errors={form?.errors?.experiment_name}
+			/>
 			<TextArea
 				id="description"
 				label="Experiment description"
@@ -104,6 +110,18 @@
 				errors={form?.errors?.molecule}
 			/>
 			<Input
+				id="spike_in"
+				label="Spiked-in"
+				value={form?.data?.spike_in ?? data.post.spike_in}
+				errors={form?.errors?.spike_in}
+			/>
+			<Input
+				id="instrument_model"
+				label="Instrument model"
+				value={form?.data?.instrument_model ?? data.post.instrument_model}
+				errors={form?.errors?.instrument_model}
+			/>
+			<Input
 				id="genome_build"
 				label="Genome build"
 				value={form?.data?.genome_build ?? data.post.genome_build}
@@ -115,12 +133,7 @@
 				value={form?.data?.nextflow_pipeline ?? data.post.nextflow_pipeline}
 				errors={form?.errors?.nextflow_pipeline}
 			/>
-			<Input
-				id="instrument_model"
-				label="Instrument model"
-				value={form?.data?.instrument_model ?? data.post.instrument_model}
-				errors={form?.errors?.instrument_model}
-			/>
+			
 			<Input
 				id="fastq_path"
 				label="FASTQ path"

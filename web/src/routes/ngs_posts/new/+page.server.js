@@ -1,6 +1,6 @@
 import { error, invalid, redirect } from '@sveltejs/kit';
 import { serialize } from 'object-to-formdata';
-import { createProjectSchema } from '$lib/schemas';
+import { createNGSPostSchema } from '$lib/schemas';
 import { validateData } from '$lib/utils';
 
 export const load = ({ locals }) => {
@@ -20,7 +20,7 @@ export const actions = {
 		}
 		body.append('user', locals.user.id);
 
-		const { formData, errors } = await validateData(body, createNGSProjectSchema);
+		const { formData, errors } = await validateData(body, createNGSPostSchema);
 		const { thumbnail, ...rest } = formData;
 
 		if (errors) {

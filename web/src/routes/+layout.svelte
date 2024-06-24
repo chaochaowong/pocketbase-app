@@ -19,6 +19,12 @@
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
+					<a href="/view/ngs_posts" class="btn btn-primary btn-outline">View NGS record</a>
+				</div>
+				<div class="dropdown dropdown-end mr-4">
+					<a href="/ngs_posts/new" class="btn btn-primary btn-outline">Add NGS record</a>
+				</div>
+				<div class="dropdown dropdown-end mr-4">
 					<a href="/view/projects" class="btn btn-primary btn-outline">View Projects</a>
 				</div>
 				<div class="dropdown dropdown-end mr-4">

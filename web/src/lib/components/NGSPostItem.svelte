@@ -18,7 +18,7 @@
 	</a>	
 
 	<div class="flex flex-col w-full ml-4 h-full justify-center">
-		<a href="/projects/{post.id}" class="font-semibold text-lg hover:text-blue-700">{post.experiment_id}</a>
+		<a href="/ngs_posts/{post.id}" class="font-semibold text-lg hover:text-blue-700">{post.experiment_id}</a>
 		<p class="font-semibold">{post.experiment_name}</p>
 		<p>{post.description}</p>
 	</div>

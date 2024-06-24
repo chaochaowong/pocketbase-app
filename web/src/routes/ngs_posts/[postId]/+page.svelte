@@ -35,11 +35,10 @@
 	<p>Cell line: {data.post.cell_line}</p>
 	<p>Antibody: {data.post.antibody}</p>
 	<p>Molecule: {data.post.molecule}</p>
-	<p>Spike_in: {data.post.spike_in}</p>
-	<p>Result folder path: {data.post.result_folder_path}</p>
+	<p>Spiked-in: {data.post.spike_in}</p>
+	<p>Instrument model: {data.post.instrument_model}</p>
 	<p>Genome build: {data.post.genome_build}</p>
 	<p>Nextflow pipeline: {data.post.nextflow_pipeline}</p>
-	<p>Instrument model: {data.post.instrument_model}</p>
 	<p>Comments: {data.post.comments}</p>
 	<p>Tag: {data.post.tag}</p>
 
