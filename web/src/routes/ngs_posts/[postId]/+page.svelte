@@ -1,10 +1,38 @@
 <script>
 	import { getImageURL } from '$lib/utils';
 	import { getFileURL } from '$lib/utils';
+	import { Icon, InboxArrowDown, Calendar, Link, Folder, Bars3BottomLeft, Users, Hashtag } from 'svelte-hero-icons';
 	export let data;
 	$: console.log(data.post) 
+	const baseGEOURL  = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=';
+	const basePMIDURL = 'https://pubmed.ncbi.nlm.nih.gov/'
+	const baseDOIURL  = 'https://doi.org/'
 </script>
 
+<style>
+    .table {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px 40px;
+        align-items: center;
+    }
+    .label-icon {
+        display: flex;
+        align-items: center;
+        color: #9CA3AF; /* Equivalent to text-gray-400 */
+    }
+    .label-icon span {
+        margin-left: 8px; /* Spacing between the icon and label */
+        font-weight: 600; /* Equivalent to font-semibold */
+		color: #6B7280; /* Equivalent to text-gray-600 */
+    }
+    .value {
+        text-align: left;
+		word-break: break-all; /* Force word break in second column */
+    }
+</style>
+
+<main class="px-40">
 <div class="flex flex-col w-full mt-4">
 	<div class="avatar" style="align-items: flex-end;">
 		<div class="w-20 rounded" style="padding-right: 10px;">
@@ -17,49 +45,269 @@
 			/>
 		</div>
 
-		<h1 class="text-2xl font-bold mt-4">
+		<h1 class="text-4xl font-bold mt-4">
             {data.post.experiment_id}
 	    </h1>
 	</div>
-	<h1 class="text-2xl font-bold mt-4">
-		{data.post.experiment_name}
-	</h1>
-	<hr>
-	<p>Project name: {data.post.project_name}</p>
-	<p>Description: {data.post.description}</p>
-	<p>Contributors: {data.post.contributors}</p>
-	<p>Library strategy: {data.post.library_strategy}</p>
-	<p>Experiment design: {data.post.experiment_design}</p>
-	<p>Organism: {data.post.organism}</p>
-	<p>Cell type: {data.post.cell_type}</p>
-	<p>Cell line: {data.post.cell_line}</p>
-	<p>Antibody: {data.post.antibody}</p>
-	<p>Molecule: {data.post.molecule}</p>
-	<p>Spiked-in: {data.post.spike_in}</p>
-	<p>Instrument model: {data.post.instrument_model}</p>
-	<p>Genome build: {data.post.genome_build}</p>
-	<p>Nextflow pipeline: {data.post.nextflow_pipeline}</p>
-	<p>Comments: {data.post.comments}</p>
-	<p>Tag: {data.post.tag}</p>
+	<!-- Two column table: icon/label value -->
+	<div class="table mt-8">
+		<!-- expreiment Name Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Experiment name</span>
+		</div>
+		<div class="value">
+			{data.post.experiment_name}
+		</div>
 
-	<h2 class="text-1xl font-bold mt-4">
-		Path 
-	</h2>
-	<p>FASTQ path: {data.post.fastq_path}</p>
-    <p>Result folder path: {data.post.result_folder_path}</p>
+		<!-- Project Name Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Project name</span>
+		</div>
+		<div class="value">
+			{data.post.project_name}
+		</div>
+	
+		<!-- Description Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Description</span>
+		</div>
+		<div class="value">
+			{data.post.description}
+		</div>
 
-	<h2 class="text-1xl font-bold mt-4">
-		Publication info 
-	</h2>
-	<p>GEO series number: {data.post.GEO_series}</p>
-	<p>DOI: {data.post.DOI}</p>
-	<p>PMID: {data.post.PMID}</p>
+		<!-- created date Row -->
+		<div class="label-icon">
+			<Icon src={Calendar} class="w-5 h-5" />
+			<span>Created date</span>
+		</div>
+		<div class="value">
+			{data.post.created}
+		</div>
 
-	<h2 class="text-1xl font-bold mt-4">
-	    Files 
-	</h2>
-	<p>Master sample sheet: {data.post.sample_master_sheet}</p>
-	<p>Tap station output: {data.post.tap_station_output}</p>
-	<p>Nextflow sample sheet: {data.post.nf_sample_sheet}</p>
-	<p>Nextflow configuration file: {data.post.nf_configuration}</p>
+		<!-- Tag Row -->
+		<div class="label-icon">
+			<Icon src={Hashtag} class="w-5 h-5" />
+			<span>Tags</span>
+		</div>
+		<div class="value">
+			{data.post.tag}
+		</div>
+
+		<!-- Contributors Row -->
+		<div class="label-icon">
+			<Icon src={Users} class="w-5 h-5" />
+			<span>Experiment contributors</span>
+		</div>
+		<div class="value">
+			{data.post.contributors}
+		</div>
+
+		<!-- collaborators Row -->
+		<div class="label-icon">
+			<Icon src={Users} class="w-5 h-5" />
+			<span>Collaborators</span>
+		</div>
+		<div class="value">
+			{data.post.collaborators}
+		</div>
+
+		<!-- Library strategy Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Library strategy</span>
+		</div>
+		<div class="value">
+			{data.post.library_strategy}
+		</div>
+
+		<!-- Experiment design Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Experiment design</span>
+		</div>
+		<div class="value">
+			{data.post.experiment_design}
+		</div>
+
+		<!-- Organism Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Organism</span>
+		</div>
+		<div class="value">
+			{data.post.organism}
+		</div>
+
+		<!-- Cell type Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Cell type</span>
+		</div>
+		<div class="value">
+			{data.post.cell_type}
+		</div>
+
+		<!-- Cell link Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Cell line</span>
+		</div>
+		<div class="value">
+			{data.post.cell_line}
+		</div>
+
+		<!-- Antibody Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Antibody</span>
+		</div>
+		<div class="value">
+			{data.post.antibody}
+		</div>
+
+		<!-- Moleculey Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Molecule</span>
+		</div>
+		<div class="value">
+			{data.post.molecule}
+		</div>
+
+		<!-- Spiked-in Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Spiked-in species (if any)</span>
+		</div>
+		<div class="value">
+			{data.post.spike_in}
+		</div>
+
+		<!-- Instrument model Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Instrument model</span>
+		</div>
+		<div class="value">
+			{data.post.instrument_model}
+		</div>
+
+		<!-- Genome build Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Genome build</span>
+		</div>
+		<div class="value">
+			{data.post.genome_build}
+		</div>
+
+		<!-- Nextflow pipeline Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Nextflow pipeline (version)</span>
+		</div>
+		<div class="value">
+			{data.post.nextflow_pipeline}
+		</div>
+
+		<!-- Comments Row -->
+		<div class="label-icon">
+			<Icon src={Bars3BottomLeft} class="w-5 h-5" />
+			<span>Comments</span>
+		</div>
+		<div class="value">
+			{data.post.comments}
+		</div>
+
+		<!-- FASTQ path Row -->
+		<div class="label-icon">
+			<Icon src={Folder} class="w-5 h-5" />
+			<span>FASTQ folder</span>
+		</div>
+		<div class="value">
+			{data.post.fastq_path}
+		</div>
+
+		<!-- Result folder Row -->
+		<div class="label-icon">
+			<Icon src={Folder} class="w-5 h-5" />
+			<span>Result folder</span>
+		</div>
+		<div class="value">
+			{data.post.result_folder_path}
+		</div>
+
+		<!-- GEO series number Row -->
+		<div class="label-icon">
+			<Icon src={Link} class="w-5 h-5" />
+			<span>GEO</span>
+		</div>
+		<div class="value">
+			{#if data.post.GEO_series}
+				<a href={baseGEOURL + data.post.GEO_series} class="text-blue-500" target="_blank" rel="noopener noreferrer">{data.post.GEO_series}</a>
+			{/if}
+		</div>
+
+		<!-- DOI Row -->
+		<div class="label-icon">
+			<Icon src={Link} class="w-5 h-5" />
+			<span>DOI</span>
+		</div>
+		<div class="value">
+			{#if data.post.GEO_series}
+				<a href={baseDOIURL + data.post.DOI} class="text-blue-500" target="_blank" rel="noopener noreferrer">{data.post.DOI}</a>
+			{/if}
+		</div>
+
+		<!-- PMID Row -->
+		<div class="label-icon">
+			<Icon src={Link} class="w-5 h-5" />
+			<span>PMID</span>
+		</div>
+		<div class="value">
+			{#if data.post.PMID}
+				<a href={basePMIDURL + data.post.PMID} class="text-blue-500" target="_blank" rel="noopener noreferrer">{data.post.PMID}</a>
+			{/if}
+		</div>
+
+		<!-- Sample master sheet Row -->
+		<div class="label-icon">
+			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.sample_master_sheet ? 'text-blue-500' : 'text-gray-500'}" />
+			<span>Master sample sheet</span>
+		</div>
+		<div class="value">
+			{data.post.sample_master_sheet}
+		</div>
+
+		<!-- tap_station_output Row -->
+		<div class="label-icon">
+			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.tap_station_output ? 'text-blue-500' : 'text-gray-500'}" />
+			<span>Tap station output</span>
+		</div>
+		<div class="value">
+			{data.post.tap_station_output}
+		</div>
+
+		<!-- nf_sample_sheet Row -->
+		<div class="label-icon">
+			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.nf_sample_sheet ? 'text-blue-500' : 'text-gray-500'}" />
+			<span>Nextflow sample sheet</span>
+		</div>
+		<div class="value">
+			{data.post.nf_sample_sheet}
+		</div>
+
+		<!-- nf_configuration Row -->
+		<div class="label-icon">
+			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.nf_configuration ? 'text-blue-500' : 'text-gray-500'}" />
+			<span>Nextflow configuration file</span>
+		</div>
+		<div class="value">
+			{data.post.nf_configuration}
+		</div>
+	</div>
 </div>
+</main>

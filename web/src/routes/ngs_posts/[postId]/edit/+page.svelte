@@ -62,10 +62,22 @@
 				errors={form?.errors?.description}
 			/>
 			<Input
+				id="tag"
+				label="Tag"
+				value={form?.data?.tag ?? data.post.tag}
+				errors={form?.errors?.tag}
+			/>
+			<Input
 				id="contributors"
 				label="Contributors"
 				value={form?.data?.contributors ?? data.post.contributors}
 				errors={form?.errors?.contributors}
+			/>
+			<Input
+				id="collaborators"
+				label="Collaborators"
+				value={form?.data?.collaborators ?? data.post.collaborators}
+				errors={form?.errors?.collaborators}
 			/>
 			<Input
 				id="library_strategy"

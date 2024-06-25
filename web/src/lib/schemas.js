@@ -127,7 +127,17 @@ export const createNGSPostSchema = z.object({
 		.string()
 		.max(2048, { message: 'Experiment desgin must be less than 2048 character'})
 		.trim()
+		.optional(),
+	contributors: z
+		.string()
+		.max(512, { message: 'Contributors must be less than 512 character'})
+		.trim()
 		.optional(),		
+	collaborators: z
+		.string()
+		.max(512, { message: 'Collaborators must be less than 512 character'})
+		.trim()
+		.optional(),				
 	organism: z
 		.string()
 		.max(64, { message: 'organism must be less than 64 character'})

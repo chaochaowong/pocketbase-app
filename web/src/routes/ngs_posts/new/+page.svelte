@@ -39,6 +39,12 @@
 				errors={form?.errors?.description}
 			/>
 			<Input
+				id="tag"
+				label="Tag"
+				value={form?.data?.tag}
+				errors={form?.errors?.tag}
+			/>
+			<Input
 				id="contributors"
 				label="Contributors"
 				value={form?.data?.contributors}
