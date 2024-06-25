@@ -174,7 +174,7 @@
 					<span class="label-text">Master sheet</span>
 				</label>
 				{#if data.post.sample_master_sheet}
-					<label for="sample_master_sheet" class="flex flex-col w-full mt-4">
+					<label for="sample_master_sheet" class="flex flex-col w-full mt-1">
 						<label for="sample_master_sheet" class="absolute hover:cursor-pointer">
 							<button formaction="?/deleteMasterSheet" class="btn btn-error btn-sm btn-circle">
 								<Icon src={Trash} class="w-5 h-5 text-white" />
@@ -206,7 +206,7 @@
 					<span class="label-text">Tap station output</span>
 				</label>
 				{#if data.post.tap_station_output}
-					<label for="tap_station_output" class="flex flex-col w-full mt-4">
+					<label for="tap_station_output" class="flex flex-col w-full mt-1">
 						<label for="tap_station_output" class="absolute hover:cursor-pointer">
 							<button formaction="?/deleteTapStation" class="btn btn-error btn-sm btn-circle">
 								<Icon src={Trash} class="w-5 h-5 text-white" />
@@ -219,8 +219,8 @@
 				{/if}	
 				<input
 					type="file"
-					name="nf_tap_station_output"
-					id="nf_tap_station_output"
+					name="tap_station_output"
+					id="tap_station_output"
 					class="file-input file-input-bordered w-full max-w-lg mt-4"
 				/>
 				{#if form?.errors?.tap_station_output}
@@ -238,7 +238,7 @@
 					<span class="label-text">Nextflow sample sheet</span>
 				</label>
 				{#if data.post.nf_sample_sheet}
-					<label for="nf_sample_sheet" class="flex flex-col w-full mt-4">
+					<label for="nf_sample_sheet" class="flex flex-col w-full mt-1">
 						<label for="nf_sample_sheet" class="absolute hover:cursor-pointer">
 							<button formaction="?/deleteNFSampleSheet" class="btn btn-error btn-sm btn-circle">
 								<Icon src={Trash} class="w-5 h-5 text-white" />
@@ -251,7 +251,7 @@
 				{/if}	
 				<input
 					type="file"
-					name="nf_samplesheet"
+					name="nf_sample_sheet"
 					id="nf_sample_sheet"
 					class="file-input file-input-bordered w-full max-w-lg mt-4"
 				/>
@@ -270,7 +270,7 @@
 					<span class="label-text">Nextflow configuration file</span>
 				</label>
 				{#if data.post.nf_configuration}
-					<label for="nf_configuration" class="flex flex-col w-full mt-4">
+					<label for="nf_configuration" class="flex flex-col w-full mt-1">
 						<label for="nf_configuration" class="absolute hover:cursor-pointer">
 							<button formaction="?/deleteNFConfiguration" class="btn btn-error btn-sm btn-circle">
 								<Icon src={Trash} class="w-5 h-5 text-white" />
