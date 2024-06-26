@@ -21,5 +21,6 @@
 		<a href="/ngs_posts/{post.id}" class="font-semibold text-lg hover:text-blue-700">{post.experiment_id}</a>
 		<p class="font-semibold">{post.experiment_name}</p>
 		<p>{post.description}</p>
+		<p>{post.tag}</p>
 	</div>
 </div>

@@ -19,10 +19,10 @@
 				</div>
 			{:else}
 				<div class="dropdown dropdown-end mr-4">
-					<a href="/view/ngs_posts" class="btn btn-primary btn-outline">View NGS record</a>
+					<a href="/view/ngs_posts" class="btn btn-primary btn-outline">View NGS records</a>
 				</div>
 				<div class="dropdown dropdown-end mr-4">
-					<a href="/ngs_posts/new" class="btn btn-primary btn-outline">Add NGS records</a>
+					<a href="/ngs_posts/new" class="btn btn-primary btn-outline">Add NGS record</a>
 				</div>
 <!-- 
 				<div class="dropdown dropdown-end mr-4">

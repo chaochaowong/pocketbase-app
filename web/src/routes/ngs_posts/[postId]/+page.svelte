@@ -7,6 +7,12 @@
 	const baseGEOURL  = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=';
 	const basePMIDURL = 'https://pubmed.ncbi.nlm.nih.gov/'
 	const baseDOIURL  = 'https://doi.org/'
+
+	function openFile(url) {
+        if (url) {
+            window.open(url, '_blank');
+        }
+    }
 </script>
 
 <style>
@@ -28,7 +34,14 @@
     }
     .value {
         text-align: left;
-		word-break: break-all; /* Force word break in second column */
+    }
+	.code-break {
+        display: block;
+        white-space: pre-wrap; /* Ensures code wraps properly */
+        word-break: break-all; /* Force word break in second column */
+        background-color: #f9f9f9;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
     }
 </style>
 
@@ -228,7 +241,7 @@
 			<span>FASTQ folder</span>
 		</div>
 		<div class="value">
-			{data.post.fastq_path}
+			<code class="code-break">{data.post.fastq_path}</code>
 		</div>
 
 		<!-- Result folder Row -->
@@ -237,7 +250,7 @@
 			<span>Result folder</span>
 		</div>
 		<div class="value">
-			{data.post.result_folder_path}
+			<code class="code-break">{data.post.result_folder_path}</code>
 		</div>
 
 		<!-- GEO series number Row -->
@@ -302,7 +315,16 @@
 
 		<!-- nf_configuration Row -->
 		<div class="label-icon">
-			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.nf_configuration ? 'text-blue-500' : 'text-gray-500'}" />
+			{#if data.post.nf_configuration}
+                    <Icon src={InboxArrowDown} 
+						class="hover:cursor-pointer w-5 h-5 text-blue-500"
+                        on:click={() => openFile(getFileURL(data.post.collectionId, data.post.id, data.post.configuration))}
+                    />
+            {:else}
+                    <Icon src={InboxArrowDown}
+                        class="icon-container-disabled w-5 h-5 text-gray-500"
+                    />
+            {/if}
 			<span>Nextflow configuration file</span>
 		</div>
 		<div class="value">

@@ -4,6 +4,7 @@
 	$: console.log(data.posts) 
 </script>
 
+
 <h2 class="text-3xl font-bold">NGS records</h2>
 <div class="w-full mt-4 flex flex-col items-center">
 	{#if data.posts.length === 0}
