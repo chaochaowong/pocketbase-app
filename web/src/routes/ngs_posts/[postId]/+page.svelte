@@ -1,7 +1,7 @@
 <script>
 	import { getImageURL } from '$lib/utils';
 	import { getFileURL } from '$lib/utils';
-	import { Icon, InboxArrowDown, Calendar, Link, Folder, Bars3BottomLeft, Users, Hashtag } from 'svelte-hero-icons';
+	import { Icon, InboxArrowDown, Calendar, Link, Folder, Bars3BottomLeft, Users, User, Hashtag } from 'svelte-hero-icons';
 	export let data;
 	$: console.log(data.post) 
 	const baseGEOURL  = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=';
@@ -125,6 +125,15 @@
 		</div>
 		<div class="value">
 			{data.post.collaborators}
+		</div>
+
+		<!-- usr (record maintainer) Row -->
+		<div class="label-icon">
+			<Icon src={User} class="w-5 h-5" />
+			<span>Record maintainer</span>
+		</div>
+		<div class="value">
+			{data.user.name}
 		</div>
 
 		<!-- Library strategy Row -->
@@ -288,7 +297,16 @@
 
 		<!-- Sample master sheet Row -->
 		<div class="label-icon">
-			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.sample_master_sheet ? 'text-blue-500' : 'text-gray-500'}" />
+			{#if data.post.sample_master_sheet}
+                    <a href={getFileURL(data.post.collectionId, data.post.id, data.post.sample_master_sheet)} target="_blank" rel="noopener noreferrer">
+					   <Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 text-blue-500" 
+					   />
+					</a>	
+            {:else}
+                    <Icon src={InboxArrowDown}
+                        class="icon-container-disabled w-5 h-5 text-gray-500"
+                    />
+            {/if}
 			<span>Master sample sheet</span>
 		</div>
 		<div class="value">
@@ -297,7 +315,16 @@
 
 		<!-- tap_station_output Row -->
 		<div class="label-icon">
-			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.tap_station_output ? 'text-blue-500' : 'text-gray-500'}" />
+			{#if data.post.tap_station_output}
+                    <a href={getFileURL(data.post.collectionId, data.post.id, data.post.tap_station_output)} target="_blank" rel="noopener noreferrer">
+					   <Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 text-blue-500" 
+					   />
+					</a>	
+            {:else}
+                    <Icon src={InboxArrowDown}
+                        class="icon-container-disabled w-5 h-5 text-gray-500"
+                    />
+            {/if}
 			<span>Tap station output</span>
 		</div>
 		<div class="value">
@@ -306,7 +333,16 @@
 
 		<!-- nf_sample_sheet Row -->
 		<div class="label-icon">
-			<Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 {data.post.nf_sample_sheet ? 'text-blue-500' : 'text-gray-500'}" />
+			{#if data.post.nf_sample_sheet}
+                    <a href={getFileURL(data.post.collectionId, data.post.id, data.post.nf_sample_sheet)} target="_blank" rel="noopener noreferrer">
+					   <Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 text-blue-500" 
+					   />
+					</a>	
+            {:else}
+                    <Icon src={InboxArrowDown}
+                        class="icon-container-disabled w-5 h-5 text-gray-500"
+                    />
+            {/if}
 			<span>Nextflow sample sheet</span>
 		</div>
 		<div class="value">
@@ -316,10 +352,10 @@
 		<!-- nf_configuration Row -->
 		<div class="label-icon">
 			{#if data.post.nf_configuration}
-                    <Icon src={InboxArrowDown} 
-						class="hover:cursor-pointer w-5 h-5 text-blue-500"
-                        on:click={() => openFile(getFileURL(data.post.collectionId, data.post.id, data.post.configuration))}
-                    />
+                    <a href={getFileURL(data.post.collectionId, data.post.id, data.post.nf_configuration)} target="_blank" rel="noopener noreferrer">
+					   <Icon src={InboxArrowDown} class="hover:cursor-pointer w-5 h-5 text-blue-500" 
+					   />
+					</a>	
             {:else}
                     <Icon src={InboxArrowDown}
                         class="icon-container-disabled w-5 h-5 text-gray-500"
