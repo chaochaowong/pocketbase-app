@@ -2,12 +2,13 @@
 	import '../app.postcss';
 	import { Toaster } from 'svelte-french-toast';
 	import { getImageURL } from '$lib/utils';
+	import { Icon, SunIcon} from 'svelte-hero-icons';
 	export let data;
 </script>
 
 <Toaster />
 <div class="min-h-full">
-	<nav class="navbar bg-base-100 border-b">
+	<nav class="navbar bg-base-200 border-b">
 		<div class="flex-1">
 			<a href="/" class="btn btn-ghost normal-case text-xl">PocketBase @ bobolink</a>
 		</div>
@@ -74,4 +75,17 @@
 			<slot />
 		</div>
 	</div>
+	<!-- Footer -->
+    <footer class="bg-base-200 border-t py-12 mt-auto">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-center text-sm">
+                <div class="text-gray-600">
+                    Created by <span class="font-semibold">Sarthy Lab @ SCRI</span>
+                </div>
+                <div class="text-gray-600">
+                    <span class="font-semibold">Seattle, WA</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
