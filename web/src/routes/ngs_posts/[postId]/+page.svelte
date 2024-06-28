@@ -100,6 +100,15 @@
 			{data.post.created}
 		</div>
 
+		<!-- last updated date Row -->
+		<div class="label-icon">
+			<Icon src={Calendar} class="w-5 h-5" />
+			<span>Last updated</span>
+		</div>
+		<div class="value">
+			{data.post.updated}
+		</div>
+
 		<!-- Tag Row -->
 		<div class="label-icon">
 			<Icon src={Hashtag} class="w-5 h-5" />
