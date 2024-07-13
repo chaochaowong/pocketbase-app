@@ -80,7 +80,7 @@
         <div class="container mx-auto px-8">
             <div class="flex justify-between items-center text-sm">
                 <div class="text-gray-600">
-                    Created by <span class="font-semibold">Sarthy Lab @ SCRI</span>
+                    Created by <span class="font-semibold">Chao-Jen Wog @ Sarthy Lab, SCRI</span>
                 </div>
                 <div class="text-gray-600">
                     <span class="font-semibold">Seattle, WA</span>
