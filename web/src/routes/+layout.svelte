@@ -2,7 +2,6 @@
 	import '../app.postcss';
 	import { Toaster } from 'svelte-french-toast';
 	import { getImageURL } from '$lib/utils';
-	import { Icon, SunIcon} from 'svelte-hero-icons';
 	export let data;
 </script>
 
@@ -51,11 +50,6 @@
 						tabindex="0"
 						class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 					>
-<!--
-						<li>
-							<a href="/my/projects" class="justify-between">My Projects</a>
-						</li>
--->
 						<li>
 							<a href="/my/ngs_posts" class="justify-between">My NGS records</a>
 						</li>

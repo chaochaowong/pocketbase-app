@@ -13,11 +13,11 @@ export const actions = {
 	createPost: async ({ request, locals }) => {
 		const body = await request.formData();
 
-		const sample_master_sheet = bosy.get('sample_master_sheet');
-		const tap_station_output = body.get('tap_station_output');
-		const nf_sample_sheet = body.get('nf_sample_sheet');
-		const nf_configuration = body.get('nf_configuration');
-		const thumb = body.get('thumbnail');
+		const sample_master_sheet = body.get('sample_master_sheet');
+		const tap_station_output  = body.get('tap_station_output');
+		const nf_sample_sheet     = body.get('nf_sample_sheet');
+		const nf_configuration    = body.get('nf_configuration');
+		const thumb               = body.get('thumbnail');
 
 		if (sample_master_sheet.size === 0) {
 			body.delete('sample_master_sheet');
