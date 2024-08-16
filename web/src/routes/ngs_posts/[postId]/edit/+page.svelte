@@ -51,7 +51,7 @@
 			/>
 			<Input
 				id="experiment_name"
-				label="Experiment ID"
+				label="Experiment name"
 				value={form?.data?.experiment_name ?? data.post.experiment_name}
 				errors={form?.errors?.experiment_name}
 			/>
