@@ -145,7 +145,7 @@ export const createNGSPostSchema = z.object({
 		.optional(),			
 	cell_line: z
 		.string()
-		.max(64, { message: 'Cell line must be less than 64 character'})
+		.max(512, { message: 'Cell line must be less than 64 character'})
 		.trim()
 		.optional(),
 	cell_type: z
