@@ -155,7 +155,7 @@ export const createNGSPostSchema = z.object({
 		.optional(),		
 	antibody: z
 		.string()
-		.max(64, { message: 'Antibody must be less than 64 character'})
+		.max(512, { message: 'Antibody must be less than 64 character'})
 		.trim()
 		.optional(),	
 	molecule: z
